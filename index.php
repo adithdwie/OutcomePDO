@@ -125,6 +125,16 @@ $data = $outcome->getAll();
                         </thead>
                         <tbody>
                         </tbody>
+                        <tfoot>
+                        <tr>
+                         <th>ID</th>
+                         <th>Nama Pengeluaran</th>
+                         <th>Nilai Pengeluaran</th>
+                         <th>Keterangan</th>
+                         <th>Tanggal</th>
+                         <th>Actions</th>
+                        </tr>
+                        </tfoot>
                     </table>
                     </div>
                   </div>
@@ -152,7 +162,7 @@ $data = $outcome->getAll();
          
                     //disable order dan searching pada tombol aksi
                          "columnDefs": [ {
-                      "targets": [0,3],
+                      "targets": [0-1,5],
                       "orderable": false,
                       "searchable": false
                         

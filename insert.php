@@ -95,9 +95,6 @@
 	  </div>
 	</nav>
 	<div id="pricing" class="container-fluid"> 
-	  <div class="text-center">
-		<h3> Menu Tambah Outcome </h3>
-	  </div>
 	  <div class="col-sm-3">
 	  </div>
 		<div class="row slideanim">
@@ -138,5 +135,4 @@
 </body>
 <script>
 </script>
-
 </html>

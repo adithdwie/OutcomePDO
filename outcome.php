@@ -48,12 +48,8 @@ class Outcome extends connect
         $sql = $this->conn->prepare('INSERT INTO outcomePDO (name,value,explanation) VALUES (?,?,?)');
         if ($this->name!=null||$this->value!=null){
         $sql->execute(array($this->name, $this->value, $this->explanation));
-	    echo " <script>alert('Selamat, Data berhasil disimpan. Kembali ke Menu Index.')</script>
-	     <meta http-equiv='refresh' content='2; url= index.php'/>  ";
-	    } else { echo "<script>alert('Mohon Maaf, Data gagal disimpan. Tetap di Menu Insert')</script>
-	        <meta http-equiv='refresh' content='2; url= insert.php'/> ";
-	    }
-    }
+    	}
+   	}
 
     public function update() {
         $sql = $this->conn->prepare('UPDATE outcomePDO SET name = ?,value = ?,explanation = ? WHERE id = ?');

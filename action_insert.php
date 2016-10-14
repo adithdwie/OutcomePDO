@@ -15,5 +15,8 @@ try {
 } catch (Exception $e) {
     $e->getMessage();
 }
-
+if ($outcome){
+       header('location:index.php');
+    } else { header('location:insert.php');
+    }
 ?>

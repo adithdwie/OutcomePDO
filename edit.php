@@ -113,10 +113,7 @@ include('lib/config.php');
 	  </div>
 	</nav>
 	<div id="edit" class="container-fluid"> 
-	  <div class="text-center">
-		<h3> Menu Tambah Outcome </h3>
-	  </div>
-	  <div class="col-sm-3">
+	 <div class="col-sm-3">
 	  </div>
 		 <div class="col-sm-6">
 		  <div class="panel panel-default text-center">
@@ -140,7 +137,6 @@ include('lib/config.php');
 		    </div>
 			 <div class="panel-footer">
 			   <button type = 'submit' class="btn btn-success" name = 'submit' value = 'Submit'>Submit</button>
-			   <button type = 'reset' class="btn btn-warning" name = 'Reset' value = 'Reset' />Reset</button> 
 			   <a class="btn btn-link" href = 'index.php'> Kembali </a>
 		     </div>
 			</form>

@@ -19,8 +19,8 @@ $data = $outcome->getAll();
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="./media/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="./media/js/jquery.js"></script>
+    <script src="./media/js/bootstrap.min.js"></script>
         <script src="./media/js/jquery.min.js"></script>
-        <script src="./media/js/bootstrap.min.js"></script>
     <style type="text/css">
     .navbar {
         margin-bottom: 0;
@@ -111,8 +111,10 @@ $data = $outcome->getAll();
                 <div class="col-sm-12">
                   <div class="panel panel-default">
                     <div class="panel-heading">
-                      <h2>Tabel Data Outcome</h2>
-                    </div>  
+						<h1>
+						    Tabel Data Outcome
+						</h1>
+					</div>
                     <div class="panel-footer">
                     <table id="example" class="table table-bordered table-striped dt-responsive nowrap" cellspacing="0" width="100%">
                        <thead>

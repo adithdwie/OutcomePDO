@@ -186,5 +186,3 @@ $data = $outcome->getAll();
     </script>
     </body>
 </html>
-
-TEST EDIT

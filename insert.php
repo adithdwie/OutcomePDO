@@ -8,6 +8,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 	<script type="text/javascript" src="./media/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="./media/js/jquery.js"></script>
+	<script src="./media/js/jquery.min.js"></script>
+    <script src="./media/js/bootstrap.min.js"></script>
 	<style type="text/css">
 	.navbar {
       	margin-bottom: 0;
@@ -88,7 +90,7 @@
 	    <div class="collapse navbar-collapse" id="myNavbar">
 	      <ul class="nav navbar-nav navbar-right">
 	        <li><a href="index.php">home</a></li>
-	        <li><a href="insert.php#pricing">tambah Outcome</a></li>
+	        <li class="active"><a href="insert.php#pricing">tambah Outcome</a></li>
 	        <li><a href="#contact">CONTACT</a></li>
 	      </ul>
 	    </div>

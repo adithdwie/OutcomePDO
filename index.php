@@ -14,11 +14,13 @@ $data = $outcome->getAll();
         <link rel="stylesheet" type="text/css" href="./media/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="./media/css/dataTables.bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="./media/css/responsive.bootstrap.min.css">
-            <link rel="stylesheet" type="text/css" href=".//media/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="./media/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="./media/js/jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="./media/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="./media/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="./media/js/jquery.js"></script>
+        <script src="./media/js/jquery.min.js"></script>
+        <script src="./media/js/bootstrap.min.js"></script>
     <style type="text/css">
     .navbar {
         margin-bottom: 0;
@@ -94,11 +96,11 @@ $data = $outcome->getAll();
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                       </button>
-                      <a class="navbar-brand" href="#myPage"><img width="100px" height="20px" src="logo.png"></a>
+                      <a class="navbar-brand" href=""><img width="100px" height="20px" src="logo.png"></a>
                     </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                   <ul class="nav navbar-nav navbar-right">
-                    <li><a href="index.php">home</a></li>
+                    <li class="active"><a href="index.php">home</a></li>
                     <li><a href="insert.php#pricing">tambah Outcome</a></li>
                     <li><a href="#contact">CONTACT</a></li>
                   </ul>
@@ -106,13 +108,13 @@ $data = $outcome->getAll();
              </div>
          </nav>
              <div id = "index" class="container-fluid">
-                <div class="col-sm-10">
+                <div class="col-sm-12">
                   <div class="panel panel-default">
                     <div class="panel-heading">
                       <h2>Tabel Data Outcome</h2>
-                    </div>
+                    </div>  
                     <div class="panel-footer">
-                    <table id="example" class="table table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                    <table id="example" class="table table-bordered table-striped dt-responsive nowrap" cellspacing="0" width="100%">
                        <thead>
                         <tr>
                          <th>ID</th>
@@ -122,7 +124,7 @@ $data = $outcome->getAll();
                          <th>Tanggal</th>
                          <th>Actions</th>
                         </tr>
-                        </thead>
+                        </thead>  
                         <tbody>
                         </tbody>
                         <tfoot>
@@ -139,17 +141,16 @@ $data = $outcome->getAll();
                     </div>
                   </div>
                 </div>
-                <div class=>
-                <div class="col-sm-2">
+                <div class="col-xs-2">
                   <div class="panel panel-default text-center">
                     <div class="panel-heading">
-                    Tambah data Outcome
+                      Tambah data Outcome
                     </div>  
                     <div class="panel-footer">
                       <a href="insert.php#pricing" class = "btn btn-primary">Add New Row</a>
                     </div>
                 </div>
-          </div>
+             </div>
             <script type="text/javascript" language="javascript" src="./media/js/jquery.dataTables.min.js"></script>
             <script type="text/javascript" language="javascript" src="./media/js/dataTables.bootstrap.min.js"></script>
             <script type="text/javascript" language="javascript" src="./media/js/dataTables.responsive.min.js"></script>
@@ -159,6 +160,7 @@ $data = $outcome->getAll();
                 $("#example").dataTable({
                    'bProcessing': true,
                     'bServerSide': true,
+                    responsive : true,
          
                     //disable order dan searching pada tombol aksi
                          "columnDefs": [ {

@@ -33,8 +33,8 @@ $columns = array(
 	//bisa juga pake logic misal jika value tertentu maka outputnya
 
 	//kita bisa buat tombol untuk keperluan edit, delete, dll, 
-	$ResultData[] = "<a href='edit.php?id=".$value->id."' class='btn btn-primary'>Edit</a> 
-<a href='delete.php?id=".$value->id."' class='btn btn-danger'>Hapus</a> ";	
+	$ResultData[] = "<a href='edit.php?id=".$value->id."' id= 'edit' class='btn btn-primary'>Edit</a> 
+<a href='delete.php?id=".$value->id."' id='edit' class='btn btn-danger'>Hapus</a> ";
 
 	//memasukan array ke variable $data
 	$data[] = $ResultData;
@@ -44,3 +44,4 @@ $columns = array(
 $datatable->set_data($data);
 //create our json
 $datatable->create_data();
+?>

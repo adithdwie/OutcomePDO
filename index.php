@@ -1,8 +1,10 @@
 <?php
 require_once './connect.php';
 require_once './outcome.php';
+include('lib/config.php');
 $outcome = new Outcome();
 $data = $outcome->getAll();
+$id = 31;
 ?>
 <!DOCTYPE html>
 <html>
@@ -85,6 +87,7 @@ $data = $outcome->getAll();
         background-color: #f4511e;
         color: #fff;
     }
+    .
     </style>
     </head>
         <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style = 'margin : 20px; font-family: arial; font-size: 16px;'>
@@ -153,6 +156,25 @@ $data = $outcome->getAll();
                     </div>
                 </div>
              </div>
+		    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
+		      <div class="modal-dialog">
+		        <div class="modal-content">
+		          <div class="modal-header">
+		            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+		            <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+		          </div>
+		          <div class="modal-body">
+		            <div class="alert alert-danger">
+		              <span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?
+		            </div>
+		          </div>
+		          <div class="modal-footer ">
+		            <a href="delete.php?id=<?php echo $id; ?>"><button type="button" class="btn btn-success" id="remove"><span class="glyphicon glyphicon-ok-sign"></span>Yes</button></a>
+		            <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>No</button>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
             <script type="text/javascript" language="javascript" src="./media/js/jquery.dataTables.min.js"></script>
             <script type="text/javascript" language="javascript" src="./media/js/dataTables.bootstrap.min.js"></script>
             <script type="text/javascript" language="javascript" src="./media/js/dataTables.responsive.min.js"></script>
@@ -173,12 +195,10 @@ $data = $outcome->getAll();
                     } ],
                     "ajax":{
                       url :"data.php",
-                    type: "post",  // method  , by default get
-                    //bisa kirim data ke server
-                    /*data: function ( d ) {
-                      
+                    type: "post", data: function ( d ) {
                               d.jurusan = "3223";
-                          },*/
+
+                          },
                     error: function (xhr, error, thrown) {
                     console.log(xhr);
                     }

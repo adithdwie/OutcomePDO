@@ -1,22 +1,10 @@
-<html>
-<body>
-
-<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-  Name: <input type="text" name="fname">
-  <input type="submit">
-</form>
-
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // collect value of input field
-    $name = $_REQUEST['fname'];
-    if (empty($name)) {
-        echo "Name is empty";
-    } else {
-        echo $name;
+<script>
+    function post(event) {
+        event.preventDefault();
+        document.getElementById("my_form").submit();
     }
-}
-?>
-
-</body>
-</html>
+</script>
+<form action="action.php" method="post" id="my_form" style="display: none;">
+    <input type="hidden" name="key" value="val" />
+</form>
+<a href="#" onclick="post()">click me!</a>

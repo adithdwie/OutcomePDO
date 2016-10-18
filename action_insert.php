@@ -11,12 +11,8 @@ $outcome->setName($name);
 $outcome->setValue($value);
 $outcome->setExplanation($explanation);
 try {
-    $outcome->insert();
+    $outcome->insert();	
+    header('location:index.php');
 } catch (Exception $e) {
     $e->getMessage();
 }
-if ($outcome){ 
-	header('location:index.php');
- } 
-else { header('location:insert.php'); }
-?>

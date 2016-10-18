@@ -4,7 +4,6 @@ require_once './outcome.php';
 include('lib/config.php');
 $outcome = new Outcome();
 $data = $outcome->getAll();
-$id = 31;
 ?>
 <!DOCTYPE html>
 <html>
@@ -169,7 +168,7 @@ $id = 31;
 		            </div>
 		          </div>
 		          <div class="modal-footer ">
-		            <a href="delete.php?id=<?php echo $id; ?>"><button type="button" class="btn btn-success" id="remove"><span class="glyphicon glyphicon-ok-sign"></span>Yes</button></a>
+		            <a href="delete.php?id=<?php  ?>"><button type="button" class="btn btn-success" id="remove"><span class="glyphicon glyphicon-ok-sign"></span>Yes</button></a>
 		            <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>No</button>
 		          </div>
 		        </div>
@@ -205,6 +204,12 @@ $id = 31;
                   },
                 });
             });
+
     </script>
+	<script type="text/javascript">
+		var id = document.getElementByClassName('delete').getAttribute('href');
+		alert('hello');
+	</script>
     </body>
 </html>
+

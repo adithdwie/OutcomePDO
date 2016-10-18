@@ -34,12 +34,12 @@ $columns = array(
 
 	//kita bisa buat tombol untuk keperluan edit, delete, dll, 
 	$ResultData[] = "
-		<a href='edit.php?id=".$value->id."' >
+		<a href='edit.php?id=".$value->id."'>
 		  <button class='btn btn-primary btn-xs' data-title='Edit' data-toggle='modal' data-target='#edit'>
 		    <span class='glyphicon glyphicon-pencil' ></span>
 		  </button>
 		</a>
-		<a class='delete' href='#?id=".$value->id."' >
+		<a href='delete.php?id=".$value->id."'>
 		  <button class='btn btn-danger btn-xs' data-title='Delete' data-toggle='modal' data-target='#delete'>
 			<span class='glyphicon glyphicon-trash'></span>
 		  </button>

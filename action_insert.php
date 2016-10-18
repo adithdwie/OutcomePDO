@@ -10,6 +10,7 @@ $outcome = new Outcome();
 $outcome->setName($name);
 $outcome->setValue($value);
 $outcome->setExplanation($explanation);
+
 try {
     $outcome->insert();	
     header('location:index.php');

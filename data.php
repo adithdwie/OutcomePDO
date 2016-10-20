@@ -33,8 +33,17 @@ $columns = array(
 	//bisa juga pake logic misal jika value tertentu maka outputnya
 
 	//kita bisa buat tombol untuk keperluan edit, delete, dll, 
-	$ResultData[] = "<a href='edit.php?id=".$value->id."' id= 'edit' class='btn btn-primary'>Edit</a> 
-<a href='delete.php?id=".$value->id."' id='edit' class='btn btn-danger'>Hapus</a> ";
+	$ResultData[] = "
+		<a href='edit.php?id=".$value->id."'>
+		  <button class='btn btn-primary btn-xs' data-title='Edit' data-toggle='modal' data-target='#edit'>
+		    <span class='glyphicon glyphicon-pencil' ></span>
+		  </button>
+		</a>
+		<a href='delete.php?id=".$value->id."'>
+		  <button id='trash' class='btn btn-danger btn-xs' data-title='Delete' data-toggle='modal' data-target='#delete'>
+			<span class='glyphicon glyphicon-trash'></span>
+		  </button>
+		</a>";
 
 	//memasukan array ke variable $data
 	$data[] = $ResultData;

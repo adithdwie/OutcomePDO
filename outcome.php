@@ -46,7 +46,7 @@ class Outcome extends connect
 
     public function insert() {
         $sql = $this->conn->prepare('INSERT INTO outcomePDO (name,value,explanation) VALUES (?,?,?)');
-        if ($this->name!=null||$this->value!=null){
+        if ($this->name!=null&&$this->value!=null){
         $sql->execute(array($this->name, $this->value, $this->explanation));
     	}
    	}

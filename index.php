@@ -1,6 +1,7 @@
 <?php
 require_once './connect.php';
 require_once './outcome.php';
+include('lib/config.php');
 $outcome = new Outcome();
 $data = $outcome->getAll();
 ?>
@@ -13,14 +14,14 @@ $data = $outcome->getAll();
         <title>Menampilkan Tabel OutcomePDO</title>
         <link rel="stylesheet" type="text/css" href="./media/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="./media/css/dataTables.bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="./media/css/responsive.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="./media/extensions/Responsive/css/responsive.bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="./media/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="./media/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="./media/js/jquery.js"></script>
-        <script src="./media/js/jquery.min.js"></script>
         <script src="./media/js/bootstrap.min.js"></script>
+        <script src="./media/js/jquery.min.js"></script>
     <style type="text/css">
     .navbar {
         margin-bottom: 0;
@@ -85,6 +86,7 @@ $data = $outcome->getAll();
         background-color: #f4511e;
         color: #fff;
     }
+    .
     </style>
     </head>
         <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style = 'margin : 20px; font-family: arial; font-size: 16px;'>
@@ -101,8 +103,8 @@ $data = $outcome->getAll();
                 <div class="collapse navbar-collapse" id="myNavbar">
                   <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="index.php">home</a></li>
-                    <li><a href="insert.php#pricing">tambah Outcome</a></li>
-                    <li><a href="#contact">CONTACT</a></li>
+                    <li><a href="insert.php">tambah Outcome</a></li>
+                    <li><a href="balance.php">Saldo</a></li>
                   </ul>
                 </div>      
              </div>
@@ -111,12 +113,15 @@ $data = $outcome->getAll();
                 <div class="col-sm-12">
                   <div class="panel panel-default">
                     <div class="panel-heading">
-                      <h2>Tabel Data Outcome</h2>
-                    </div>  
+						<h1>
+						    Tabel Data Outcome 
+						</h1>
+					</div>
                     <div class="panel-footer">
                     <table id="example" class="table table-bordered table-striped dt-responsive nowrap" cellspacing="0" width="100%">
                        <thead>
                         <tr>
+                        <a href="insert.php" class = "btn btn-primary">Add New Row</a>
                          <th>ID</th>
                          <th>Nama Pengeluaran</th>
                          <th>Nilai Pengeluaran</th>
@@ -141,20 +146,29 @@ $data = $outcome->getAll();
                     </div>
                   </div>
                 </div>
-                <div class="col-xs-2">
-                  <div class="panel panel-default text-center">
-                    <div class="panel-heading">
-                      Tambah data Outcome
-                    </div>  
-                    <div class="panel-footer">
-                      <a href="insert.php#pricing" class = "btn btn-primary">Add New Row</a>
-                    </div>
-                </div>
-             </div>
+		    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
+		      <div class="modal-dialog">
+		        <div class="modal-content">
+		          <div class="modal-header">
+		            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+		            <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+		          </div>
+		          <div class="modal-body">
+		            <div class="alert alert-danger">
+		              <span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?
+		            </div>
+		          </div>
+		          <div class="modal-footer ">
+		            <a href="delete.php?id=<?php echo htmlentities($_SERVER["PHP_SELF"])?>"><button type="button" class="btn btn-success" id="delete"><span class="glyphicon glyphicon-ok-sign"></span>Yes</button></a>
+		            <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>No</button>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
             <script type="text/javascript" language="javascript" src="./media/js/jquery.dataTables.min.js"></script>
             <script type="text/javascript" language="javascript" src="./media/js/dataTables.bootstrap.min.js"></script>
-            <script type="text/javascript" language="javascript" src="./media/js/dataTables.responsive.min.js"></script>
-            <script type="text/javascript" language="javascript" src="./media/js/responsive.bootstrap.min.js"></script>
+            <script type="text/javascript" language="javascript" src="./media/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+            <script type="text/javascript" language="javascript" src="./media/extensions/Responsive/js/responsive.bootstrap.min.js"></script>
             <script>
             $(document).ready(function() {
                 $("#example").dataTable({
@@ -171,18 +185,18 @@ $data = $outcome->getAll();
                     } ],
                     "ajax":{
                       url :"data.php",
-                    type: "post",  // method  , by default get
-                    //bisa kirim data ke server
-                    /*data: function ( d ) {
-                      
+                    type: "post", data: function ( d ) {
                               d.jurusan = "3223";
-                          },*/
+
+                          },  
                     error: function (xhr, error, thrown) {
                     console.log(xhr);
                     }
                   },
                 });
-            });
+              });
     </script>
+	</script>
     </body>
 </html>
+

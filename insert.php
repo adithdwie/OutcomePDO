@@ -90,8 +90,8 @@
 	    <div class="collapse navbar-collapse" id="myNavbar">
 	      <ul class="nav navbar-nav navbar-right">
 	        <li><a href="index.php">home</a></li>
-	        <li class="active"><a href="insert.php#pricing">tambah Outcome</a></li>
-	        <li><a href="#contact">CONTACT</a></li>
+	        <li class="active"><a href="insert.php">tambah Outcome</a></li>
+	        <li><a href="balance.php">Saldo</a></li>
 	      </ul>
 	    </div>
 	  </div>

@@ -14,13 +14,13 @@ $data = $outcome->getAll();
         <title>Menampilkan Tabel OutcomePDO</title>
         <link rel="stylesheet" type="text/css" href="./media/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="./media/css/dataTables.bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="./media/css/responsive.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="./media/extensions/Responsive/css/responsive.bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="./media/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="./media/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="./media/js/jquery.js"></script>
-    <script src="./media/js/bootstrap.min.js"></script>
+        <script src="./media/js/bootstrap.min.js"></script>
         <script src="./media/js/jquery.min.js"></script>
     <style type="text/css">
     .navbar {
@@ -159,7 +159,7 @@ $data = $outcome->getAll();
 		            </div>
 		          </div>
 		          <div class="modal-footer ">
-		            <a href="delete.php?id=<?php echo htmlentities($_SERVER["PHP_SELF"])?>"><button type="button" class="btn btn-success" id="remove"><span class="glyphicon glyphicon-ok-sign"></span>Yes</button></a>
+		            <a href="delete.php?id=<?php echo htmlentities($_SERVER["PHP_SELF"])?>"><button type="button" class="btn btn-success" id="delete"><span class="glyphicon glyphicon-ok-sign"></span>Yes</button></a>
 		            <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>No</button>
 		          </div>
 		        </div>
@@ -167,8 +167,8 @@ $data = $outcome->getAll();
 		    </div>
             <script type="text/javascript" language="javascript" src="./media/js/jquery.dataTables.min.js"></script>
             <script type="text/javascript" language="javascript" src="./media/js/dataTables.bootstrap.min.js"></script>
-            <script type="text/javascript" language="javascript" src="./media/js/dataTables.responsive.min.js"></script>
-            <script type="text/javascript" language="javascript" src="./media/js/responsive.bootstrap.min.js"></script>
+            <script type="text/javascript" language="javascript" src="./media/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+            <script type="text/javascript" language="javascript" src="./media/extensions/Responsive/js/responsive.bootstrap.min.js"></script>
             <script>
             $(document).ready(function() {
                 $("#example").dataTable({
@@ -194,11 +194,7 @@ $data = $outcome->getAll();
                     }
                   },
                 });
-              $("remove").on('click', function() {
-                  <?php ?>
-                  });
               });
-            });
     </script>
 	</script>
     </body>

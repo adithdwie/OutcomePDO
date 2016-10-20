@@ -121,24 +121,28 @@ include('lib/config.php');
 		   	<h1>Tabel Data Saldo</h1>
 		   </div>
 		   <div class="panel-body">
-		    <div class="form-group">
-		   	<form method = 'POST' action = "action_edit.php?id=<?php echo $array[3]?>">
-			 <label for='name'>Nama Pengeluaran :</label> 
-			 <input type = 'text' class='form-control' name = 'name' value= '<?php echo $array[0]?>'/>
-			</div>
-			<div class="form-group">
-			 <label for='value'>Nilai Pengeluaran :</label>
-			 <input type = 'number' class="form-control" name = 'value' value= '<?php echo $array[1]?>'/>
-			</div>
-			<div class="form-group"> 
-			 <label for='explanation'>Keterangan :</label> 
-			 <input type = 'text' class="form-control" name = 'explanation' value= '<?php echo $array[2]?>'/>
-		    </div>
-		    </div>
-			 <div class="panel-footer">
-			   <button type = 'submit' class="btn btn-success" name = 'submit' value = 'Submit'>Submit</button>
-			   <a class="btn btn-link" href = 'index.php'> Kembali </a>
-		     </div>
+		    <table id="example" class="display" cellspacing="0" width="100%">
+		        <thead>
+		            <tr>
+		                <th>Name</th>
+		                <th>Position</th>
+		                <th>Office</th>
+		                <th>Extn.</th>
+		                <th>Start date</th>
+		                <th>Salary</th>
+		            </tr>
+		        </thead>
+		        <tfoot>
+		            <tr>
+		                <th>Name</th>
+		                <th>Position</th>
+		                <th>Office</th>
+		                <th>Extn.</th>
+		                <th>Start date</th>
+		                <th>Salary</th>
+		            </tr>
+		        </tfoot>
+		    </table>
 			</form>
 		    <!--div for panel panel-default text-center-->
 		   </div>
@@ -146,8 +150,73 @@ include('lib/config.php');
 	    </div>
 	 <!--div for pricing-->
 	</div> 
-</body>
-<script>
-</script>
-
+    <script type="text/javascript" language="javascript" src="./media/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="./media/extension/Buttons/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" language="javascript" src="./media/extension/Select/js/dataTables.select.min.js"></script>
+    <script type="text/javascript" language="javascript" src="./media/js/dataTables.editor.min.js"></script>
+		<script>
+			var editor; // use a global for the submit and return data rendering in the examples
+			 
+			$(document).ready(function() {
+			    editor = new $.fn.dataTable.Editor( {
+			        ajax: "../php/staff.php",
+			        table: "#example",
+			        fields: [ {
+			                label: "First name:",
+			                name: "first_name"
+			            }, {
+			                label: "Last name:",
+			                name: "last_name"
+			            }, {
+			                label: "Position:",
+			                name: "position"
+			            }, {
+			                label: "Office:",
+			                name: "office"
+			            }, {
+			                label: "Extension:",
+			                name: "extn"
+			            }, {
+			                label: "Start date:",
+			                name: "start_date",
+			                type: "datetime"
+			            }, {
+			                label: "Salary:",
+			                name: "salary"
+			            }
+			        ]
+			    } );
+			 
+			    var table = $('#example').DataTable( {
+			        dom: "Bfrtip",
+			        ajax: "../php/staff.php",
+			        columns: [
+			            { data: null, render: function ( data, type, row ) {
+			                // Combine the first and last names into a single table field
+			                return data.first_name+' '+data.last_name;
+			            } },
+			            { data: "position" },
+			            { data: "office" },
+			            { data: "extn" },
+			            { data: "start_date" },
+			            { data: "salary", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) }
+			        ],
+			        select: true,
+			        buttons: [
+			            { extend: "create", editor: editor },
+			            { extend: "edit",   editor: editor },
+			            {
+			                extend: "remove",
+			                editor: editor,
+			                formMessage: function ( e, dt ) {
+			                    var rows = dt.rows( e.modifier() ).data().pluck('first_name');
+			                    return 'Are you sure you want to delete the entries for the '+
+			                        'following record(s)? <ul><li>'+rows.join('</li><li>')+'</li></ul>';
+			                }
+			            }
+			        ]
+			    } );
+			} );
+		</script>
+	</body>
 </html>

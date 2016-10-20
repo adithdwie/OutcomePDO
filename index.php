@@ -103,8 +103,8 @@ $data = $outcome->getAll();
                 <div class="collapse navbar-collapse" id="myNavbar">
                   <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="index.php">home</a></li>
-                    <li><a href="insert.php#pricing">tambah Outcome</a></li>
-                    <li><a href="#contact">CONTACT</a></li>
+                    <li><a href="insert.php">tambah Outcome</a></li>
+                    <li><a href="balance.php">Saldo</a></li>
                   </ul>
                 </div>      
              </div>
@@ -114,13 +114,14 @@ $data = $outcome->getAll();
                   <div class="panel panel-default">
                     <div class="panel-heading">
 						<h1>
-						    Tabel Data Outcome
+						    Tabel Data Outcome 
 						</h1>
 					</div>
                     <div class="panel-footer">
                     <table id="example" class="table table-bordered table-striped dt-responsive nowrap" cellspacing="0" width="100%">
                        <thead>
                         <tr>
+                        <a href="insert.php" class = "btn btn-primary">Add New Row</a>
                          <th>ID</th>
                          <th>Nama Pengeluaran</th>
                          <th>Nilai Pengeluaran</th>
@@ -145,16 +146,6 @@ $data = $outcome->getAll();
                     </div>
                   </div>
                 </div>
-                <div class="col-xs-2">
-                  <div class="panel panel-default text-center">
-                    <div class="panel-heading">
-                      Tambah data Outcome
-                    </div>  
-                    <div class="panel-footer">
-                      <a href="insert.php#pricing" class = "btn btn-primary">Add New Row</a>
-                    </div>
-                </div>
-             </div>
 		    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
 		      <div class="modal-dialog">
 		        <div class="modal-content">
@@ -168,7 +159,7 @@ $data = $outcome->getAll();
 		            </div>
 		          </div>
 		          <div class="modal-footer ">
-		            <a href="delete.php?id=<?php  ?>"><button type="button" class="btn btn-success" id="remove"><span class="glyphicon glyphicon-ok-sign"></span>Yes</button></a>
+		            <a href="delete.php?id=<?php echo htmlentities($_SERVER["PHP_SELF"])?>"><button type="button" class="btn btn-success" id="remove"><span class="glyphicon glyphicon-ok-sign"></span>Yes</button></a>
 		            <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>No</button>
 		          </div>
 		        </div>
@@ -197,18 +188,18 @@ $data = $outcome->getAll();
                     type: "post", data: function ( d ) {
                               d.jurusan = "3223";
 
-                          },
+                          },  
                     error: function (xhr, error, thrown) {
                     console.log(xhr);
                     }
                   },
                 });
+              $("remove").on('click', function() {
+                  <?php ?>
+                  });
+              });
             });
-
     </script>
-	<script type="text/javascript">
-		var id = document.getElementByClassName('delete').getAttribute('href');
-		alert('hello');
 	</script>
     </body>
 </html>

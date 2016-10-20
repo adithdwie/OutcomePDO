@@ -39,7 +39,7 @@ $columns = array(
 		    <span class='glyphicon glyphicon-pencil' ></span>
 		  </button>
 		</a>
-		<a href='delete.php?id=".$value->id."'>
+		<a href='#".$value->id."'>
 		  <button class='btn btn-danger btn-xs' data-title='Delete' data-toggle='modal' data-target='#delete'>
 			<span class='glyphicon glyphicon-trash'></span>
 		  </button>

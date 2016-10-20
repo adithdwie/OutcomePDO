@@ -10,12 +10,12 @@ ini_set('display_errors', '1');
  */
 $sql_details = array(
 	"type" => "Mysql",  // Database type: "Mysql", "Postgres", "Sqlite" or "Sqlserver"
-	"user" => "",       // Database user name
-	"pass" => "",       // Database password
-	"host" => "",       // Database host
+	"user" => "root",       // Database user name
+	"pass" => "barca8bit",       // Database password
+	"host" => "localhost",       // Database host
 	"port" => "",       // Database connection port (can be left empty for default)
-	"db"   => "",       // Database name
-	"dsn"  => ""        // PHP DSN extra information. Set as `charset=utf8` if you are using MySQL
+	"db"   => "outcomePDO",       // Database name
+	"dsn"  => "charset=utf8"        // PHP DSN extra information. Set as `charset=utf8` if you are using MySQL
 );
 
 

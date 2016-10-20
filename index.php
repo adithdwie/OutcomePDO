@@ -14,14 +14,13 @@ $data = $outcome->getAll();
         <title>Menampilkan Tabel OutcomePDO</title>
         <link rel="stylesheet" type="text/css" href="./media/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="./media/css/dataTables.bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="./media/extensions/Responsive/css/responsive.bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="./media/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="./media/extensions/Responsive/css/responsive.bootstrap.min.css">        
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-        <script type="text/javascript" src="./media/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="./media/js/jquery.min.js"></script>
         <script type="text/javascript" src="./media/js/jquery.js"></script>
-        <script src="./media/js/bootstrap.min.js"></script>
-        <script src="./media/js/jquery.min.js"></script>
+        <script type="text/javascript" src="./media/js/bootstrap.min.js"></script>
+
     <style type="text/css">
     .navbar {
         margin-bottom: 0;
@@ -116,7 +115,7 @@ $data = $outcome->getAll();
 						<h1>
 						    Tabel Data Outcome 
 						</h1>
-					</div>
+					     </div>
                     <div class="panel-footer">
                     <table id="example" class="table table-bordered table-striped dt-responsive nowrap" cellspacing="0" width="100%">
                        <thead>
@@ -146,25 +145,25 @@ $data = $outcome->getAll();
                     </div>
                   </div>
                 </div>
-		    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
-		      <div class="modal-dialog">
-		        <div class="modal-content">
-		          <div class="modal-header">
-		            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-		            <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
-		          </div>
-		          <div class="modal-body">
-		            <div class="alert alert-danger">
-		              <span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?
-		            </div>
-		          </div>
-		          <div class="modal-footer ">
-		            <a href="delete.php?id=<?php echo htmlentities($_SERVER["PHP_SELF"])?>"><button type="button" class="btn btn-success" id="delete"><span class="glyphicon glyphicon-ok-sign"></span>Yes</button></a>
-		            <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>No</button>
-		          </div>
-		        </div>
-		      </div>
-		    </div>
+    		    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
+    		      <div class="modal-dialog">
+    		        <div class="modal-content">
+    		          <div class="modal-header">
+    		            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+    		            <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+    		          </div>
+    		          <div class="modal-body">
+    		            <div class="alert alert-danger">
+    		              <span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?
+    		            </div>
+    		          </div>
+    		          <div class="modal-footer ">
+    		            <a href="delete.php?id=<?php echo htmlentities($_SERVER["PHP_SELF"])?>"><button type="button" class="btn btn-success" id="delete"><span class="glyphicon glyphicon-ok-sign"></span>Yes</button></a>
+    		            <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>No</button>
+    		          </div>
+    		        </div>
+    		      </div>
+    		    </div>
             <script type="text/javascript" language="javascript" src="./media/js/jquery.dataTables.min.js"></script>
             <script type="text/javascript" language="javascript" src="./media/js/dataTables.bootstrap.min.js"></script>
             <script type="text/javascript" language="javascript" src="./media/extensions/Responsive/js/dataTables.responsive.min.js"></script>
@@ -174,7 +173,6 @@ $data = $outcome->getAll();
                 $("#example").dataTable({
                    'bProcessing': true,
                     'bServerSide': true,
-                    responsive : true,
          
                     //disable order dan searching pada tombol aksi
                          "columnDefs": [ {

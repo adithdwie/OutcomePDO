@@ -17,27 +17,12 @@ use
     DataTables\Editor\Validate;
  
 // Build our Editor instance and process the data coming from _POST
-Editor::inst( $db, 'datatables_demo' )
+Editor::inst( $db, 'outcomepdo' )
     ->fields(
-        Field::inst( 'first_name' )->validator( 'Validate::notEmpty' ),
-        Field::inst( 'last_name' )->validator( 'Validate::notEmpty' ),
-        Field::inst( 'position' ),
-        Field::inst( 'email' ),
-        Field::inst( 'office' ),
-        Field::inst( 'extn' ),
-        Field::inst( 'age' )
-            ->validator( 'Validate::numeric' )
-            ->setFormatter( 'Format::ifEmpty', null ),
-        Field::inst( 'salary' )
-            ->validator( 'Validate::numeric' )
-            ->setFormatter( 'Format::ifEmpty', null ),
-        Field::inst( 'start_date' )
-            ->validator( 'Validate::dateFormat', array(
-                "format"  => Format::DATE_ISO_8601,
-                "message" => "Please enter a date in the format yyyy-mm-dd"
-            ) )
-            ->getFormatter( 'Format::date_sql_to_format', Format::DATE_ISO_8601 )
-            ->setFormatter( 'Format::date_format_to_sql', Format::DATE_ISO_8601 )
-    )
+        Field::inst( 'id' ),
+        Field::inst( 'name' ),
+        Field::inst( 'value' ),
+        Field::inst( 'explanation' ),
+        Field::inst( 'reg_date' ))
     ->process( $_POST )
     ->json();

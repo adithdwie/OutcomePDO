@@ -20,12 +20,12 @@ include('lib/config.php');
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Menu Tambah Outcome </title>
+	<title> Menu Edit Outcome </title>
 	<link rel="stylesheet" type="text/css" href=".//media/css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="./media/js/jquery.js"></script>	
 	<script type="text/javascript" src="./media/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="./media/js/jquery.js"></script>
 	<style type="text/css">
 	.navbar {
       	margin-bottom: 0;

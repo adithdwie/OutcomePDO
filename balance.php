@@ -21,11 +21,14 @@ include('lib/config.php');
 <html>
 <head>
 	<title> Menampilkan Tabel Data Saldo </title>
-	<link rel="stylesheet" type="text/css" href=".//media/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./media/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./media/css/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./media/extensions/Buttons/css/buttons.bootstrap.min.css">	
+    <link rel="stylesheet" type="text/css" href="./media/extensions/Responsive/css/responsive.bootstrap.min.css">	
+	<link rel="stylesheet" type="text/css" href="./media/extensions/Select/css/select.bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./media/css/editor.bootstrap.min.css">	
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-	<script type="text/javascript" src="./media/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="./media/js/jquery.js"></script>
 	<style type="text/css">
 	.navbar {
       	margin-bottom: 0;
@@ -113,108 +116,103 @@ include('lib/config.php');
 	  </div>
 	</nav>
 	<div id="edit" class="container-fluid"> 
-	 <div class="col-sm-3">
-	  </div>
-		 <div class="col-sm-6">
-		  <div class="panel panel-default text-center">
+		 <div class="col-sm-12">
+		  <div class="panel panel-default">
 		   <div class="panel-heading">
 		   	<h1>Tabel Data Saldo</h1>
 		   </div>
-		   <div class="panel-body">
-		    <table id="example" class="display" cellspacing="0" width="100%">
+		   <div class="panel-footer">
+		    <table id="example" class="table table-bordered table-striped dt-responsive nowrap" cellspacing="0" width="100%">
 		        <thead>
 		            <tr>
+		            	<th>id</th>
 		                <th>Name</th>
 		                <th>Position</th>
 		                <th>Office</th>
-		                <th>Extn.</th>
-		                <th>Start date</th>
-		                <th>Salary</th>
 		            </tr>
 		        </thead>
 		        <tfoot>
 		            <tr>
+		            	<th>id</th>
 		                <th>Name</th>
 		                <th>Position</th>
 		                <th>Office</th>
-		                <th>Extn.</th>
-		                <th>Start date</th>
-		                <th>Salary</th>
 		            </tr>
 		        </tfoot>
 		    </table>
 			</form>
-		    <!--div for panel panel-default text-center-->
+		    <!--div for panel panel-default-->
 		   </div>
-		   <!--div for col-sm-6-->	
+		   <!--div for col-sm-12-->	
 	    </div>
 	 <!--div for pricing-->
 	</div> 
+	<script type="text/javascript" src="./media/js/jquery.js"></script>
+	<script type="text/javascript" src="./media/js/bootstrap.min.js"></script>
     <script type="text/javascript" language="javascript" src="./media/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" language="javascript" src="./media/extension/Buttons/js/dataTables.buttons.min.js"></script>
-    <script type="text/javascript" language="javascript" src="./media/extension/Select/js/dataTables.select.min.js"></script>
+    <script type="text/javascript" language="javascript" src="./media/js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript" src="./media/extensions/Responsive/js/dataTables.responsive.min.js"></script>      
+    <script type="text/javascript" language="javascript" src="./media/extensions/Responsive/js/responsive.bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript" src="./media/extensions/Buttons/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" language="javascript" src="./media/extensions/Buttons/js/buttons.bootstrap.min.js"></script> 
+    <script type="text/javascript" language="javascript" src="./media/extensions/Buttons/js/buttons.colVis.min.js"></script>
+    <script type="text/javascript" language="javascript" src="./media/extensions/Select/js/dataTables.select.min.js"></script>
     <script type="text/javascript" language="javascript" src="./media/js/dataTables.editor.min.js"></script>
+    <script type="text/javascript" language="javascript" src="./media/js/editor.bootstrap.min.js"></script>
 		<script>
 			var editor; // use a global for the submit and return data rendering in the examples
 			 
 			$(document).ready(function() {
 			    editor = new $.fn.dataTable.Editor( {
-			        ajax: "../php/staff.php",
+			        ajax: "data_balance.php",
 			        table: "#example",
 			        fields: [ {
-			                label: "First name:",
-			                name: "first_name"
+			                label: "Id:",
+			                name: "id"
+			            },{
+			                label: "Nama Pengeluaran:",
+			                name: "name"
 			            }, {
-			                label: "Last name:",
-			                name: "last_name"
+			                label: "Nilai Pengeluaran:",
+			                name: "value"
 			            }, {
-			                label: "Position:",
-			                name: "position"
-			            }, {
-			                label: "Office:",
-			                name: "office"
-			            }, {
-			                label: "Extension:",
-			                name: "extn"
-			            }, {
-			                label: "Start date:",
-			                name: "start_date",
-			                type: "datetime"
-			            }, {
-			                label: "Salary:",
-			                name: "salary"
+			                label: "Penjelasan:",
+			                name: "explanation"
 			            }
 			        ]
 			    } );
 			 
 			    var table = $('#example').DataTable( {
 			        dom: "Bfrtip",
-			        ajax: "../php/staff.php",
+			        ajax: "/Outcome PDO/Outcome-PDO/data_balance.php",
 			        columns: [
-			            { data: null, render: function ( data, type, row ) {
-			                // Combine the first and last names into a single table field
-			                return data.first_name+' '+data.last_name;
-			            } },
-			            { data: "position" },
-			            { data: "office" },
-			            { data: "extn" },
-			            { data: "start_date" },
-			            { data: "salary", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) }
+			        	{ data: "id" },
+			            { data: "name" },
+			            { data: "value" },
+			            { data: "explanation" }
 			        ],
 			        select: true,
-			        buttons: [
+			        buttons: [ 
 			            { extend: "create", editor: editor },
 			            { extend: "edit",   editor: editor },
 			            {
 			                extend: "remove",
 			                editor: editor,
 			                formMessage: function ( e, dt ) {
-			                    var rows = dt.rows( e.modifier() ).data().pluck('first_name');
+			                    var rows = dt.rows( e.modifier() ).data().pluck('name');
 			                    return 'Are you sure you want to delete the entries for the '+
 			                        'following record(s)? <ul><li>'+rows.join('</li><li>')+'</li></ul>';
 			                }
-			            }
-			        ]
+			            },
+			            { extend: 'colvis' }]
+			    } );
+			    $('#example').on( 'click', 'tbody td, tbody span.dtr-data', function (e) {
+			        // Ignore the Responsive control and checkbox columns
+			        if ( $(this).hasClass( 'control' ) || $(this).hasClass('select-checkbox') ) {
+			            return;
+			        }
+			 
+			        editor.inline( this );
 			    } );
 			} );
 		</script>
